@@ -1,8 +1,10 @@
-<h1>Meetings</h1>
-<div id="meetings">
-  <% @meetings.each do |meeting| %>
-    <div>
-      <%= meeting.title %>
-    </div>
-  <% end %>
+<div>
+  <h1 class="text-3xl font-bold">Meetings</h1>
+  <div id="meetings">
+    <% @meetings.each do |meeting| %>
+      <div>
+        <%= meeting.title %>
+      </div>
+    <% end %>
+  </div>
 </div>
