@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_09_122744) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_09_123007) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -31,7 +31,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_09_122744) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "meeting_time"
+    t.integer "meeting_series_id", null: false
+    t.index ["meeting_series_id"], name: "index_meetings_on_meeting_series_id"
   end
 
   add_foreign_key "meeting_series", "books"
+  add_foreign_key "meetings", "meeting_series"
 end
