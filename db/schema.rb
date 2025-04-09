@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_09_124325) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_09_223900) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -33,6 +33,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_09_124325) do
     t.integer "meeting_series_id", null: false
     t.string "reading_expectations"
     t.index ["meeting_series_id"], name: "index_meetings_on_meeting_series_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "meeting_series", "books"
