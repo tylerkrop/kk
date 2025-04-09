@@ -1,4 +1,6 @@
 <div>
+  <p>Current User: <%= current_user&.username %></p>
+  <%= button_to "Sign in with Discord", user_discord_omniauth_authorize_path, data: { turbo: false } %>
   <h1 class="text-xl font-bold">Meetings</h1>
   <div id="meetings">
     <% @meetings.each do |meeting| %>
