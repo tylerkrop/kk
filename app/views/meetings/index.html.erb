@@ -5,7 +5,7 @@
       <div>
         <div class="text-lg"><%= meeting.meeting_time.in_time_zone("America/New_York").to_fs(:long_ordinal) %></div>
         <div>
-          <%= meeting.meeting_series.book.title %>
+          <%= meeting.meeting_series.book.title %>: <%= meeting.reading_expectations %>
         </div>
       </div>
     <% end %>
