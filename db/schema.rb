@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_10_231355) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_10_232448) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -42,6 +42,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_231355) do
     t.string "provider"
     t.string "uid"
     t.string "username"
+    t.string "remember_token"
   end
 
   add_foreign_key "meeting_series", "books"

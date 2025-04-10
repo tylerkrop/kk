@@ -11,13 +11,18 @@ class User < ApplicationRecord
     user
   end
 
-  # This method is used to skip the email validation for omniauth users
+  # Skip the email validation for Devise
   def email_required?
     false
   end
 
-  # This method is used to skip the password validation for omniauth users
+  # Skip password validation for Devise
   def encrypted_password
     false
+  end
+
+  # Force the remember token to always be present for Devise
+  def remember_me
+    true
   end
 end
