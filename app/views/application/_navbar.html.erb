@@ -1,5 +1,15 @@
-<div class="flex flex-wrap p-2 bg-emerald-500">
-  <div class="mx-2">
+<div class="flex flex-wrap items-center p-2 bg-emerald-500 space-x-2">
+  <div>
     <%= link_to "Home", root_path, class: "font-semibold" %>
+  </div>
+  <div class="ml-auto">
+    <% if current_user %>
+      <div class="flex items-center space-x-2">
+        <div><%= current_user.username %></div>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "font-semibold cursor-pointer" %>
+      </div>
+    <% else %>
+      <%= button_to "Login", user_discord_omniauth_authorize_path, data: { turbo: false } %>
+    <% end %>
   </div>
 </div>
