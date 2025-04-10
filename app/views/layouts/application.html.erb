@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Kk" %></title>
+    <title><%= content_for(:title) || "Kip's Korner" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -22,9 +22,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-800">
     <%= render "navbar" %>
-    <main class="container mx-auto mt-2 px-2 flex">
+    <main class="container mx-auto mt-6 px-2 flex text-white">
       <%= yield %>
     </main>
   </body>
