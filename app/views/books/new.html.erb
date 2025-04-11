@@ -1,0 +1,31 @@
+<!-- A form for creating a new book -->
+<div>
+  <% if flash[:notice] %>
+    <div class="bg-green-200 text-green-700 p-1 rounded-md">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="bg-red-200 text-red-700 p-1 rounded-md">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+  <h1 class="text-2xl font-bold underline">New Book</h1>
+  <%= form_with model: @book, url: books_path, local: true do |form| %>
+    <div class="my-4">
+      <%= form.label :title, "Title" %>
+      <%= form.text_field :title, class: "border rounded-md p-1" %>
+    </div>
+    <div class="my-4">
+      <%= form.label :author, "Author" %>
+      <%= form.text_field :author, class: "border rounded-md p-1" %>
+    </div>
+    <div class="my-4">
+      <%= form.label :url, "URL" %>
+      <%= form.text_field :url, class: "border rounded-md p-1" %>
+    </div>
+    <div class="my-4">
+      <%= form.submit "Create Book", class: "bg-emerald-700 cursor-pointer hover:bg-emerald-600 font-semibold p-2 rounded-md" %>
+    </div>
+  <% end %>
+</div>
