@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :uid, presence: true
   validates :username, presence: true
 
+  has_many :votes, dependent: :destroy
+
   def self.from_omniauth(auth)
     user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
     user.username = auth.info["name"]

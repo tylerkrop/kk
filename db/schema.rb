@@ -46,7 +46,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_11_231019) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "rank"
+    t.integer "position", null: false
     t.integer "user_id", null: false
     t.integer "book_id", null: false
     t.datetime "created_at", null: false

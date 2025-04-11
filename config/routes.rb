@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   root "meetings#index"
 
   resources :books, only: [ :index, :edit, :update, :new, :create ]
-  resources :votes, only: [ :index ]
+  resources :votes, only: [ :index ] do
+    resources :positions, only: [ :update ], module: :votes
+  end
 end

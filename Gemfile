@@ -73,3 +73,5 @@ gem "omniauth-discord", "~> 1.2"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "kaminari", "~> 1.2"
+
+gem "acts_as_list", "~> 1.2"
