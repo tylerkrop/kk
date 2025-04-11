@@ -9,11 +9,9 @@
         <div>
           by <%= book.author %>
         </div>
-        <% if book.url %>
-          <div class="italic text-sm">
-            <%= link_to "View on Storygraph", book.url, target: "_blank" %>
-          </div>
-        <% end %>
+        <div class="italic text-sm">
+          <%= link_to "View on Storygraph", book.url, target: "_blank" %>
+        </div>
       </div>
     <% end %>
   </div>
