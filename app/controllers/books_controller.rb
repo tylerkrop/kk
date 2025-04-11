@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: [ :index ]
 
   def index
-    @books = Book.all
+    @books = Book.order(:title).page params[:page]
   end
 
   def new
