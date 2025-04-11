@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.where("meeting_time > ?", Time.now).order(:meeting_time)
   end
 end
