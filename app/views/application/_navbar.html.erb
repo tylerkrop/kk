@@ -8,11 +8,17 @@
   <div class="ml-auto">
     <% if current_user %>
       <div class="flex items-center space-x-2">
-        <div><%= current_user.username %></div>
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "font-semibold cursor-pointer hover:bg-emerald-700 rounded-md p-1" %>
+        <div>
+          <%= current_user.username %>
+        </div>
+        <div>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "font-semibold cursor-pointer hover:bg-emerald-700 rounded-md p-1" %>
+        </div>
       </div>
     <% else %>
-      <%= button_to "Login", user_discord_omniauth_authorize_path, class: "font-semibold cursor-pointer hover:bg-emerald-700 rounded-md p-1", data: { turbo: false } %>
+      <div>
+        <%= button_to "Login", user_discord_omniauth_authorize_path, class: "font-semibold cursor-pointer hover:bg-emerald-700 rounded-md p-1", data: { turbo: false } %>
+      </div>
     <% end %>
   </div>
 </div>
