@@ -9,8 +9,14 @@
         <div>
           by <%= book.author %>
         </div>
-        <div class="italic text-sm">
-          <%= link_to "View on StoryGraph", book.url, target: "_blank" %>
+        <div>
+          <span class="italic text-sm">
+            <%= link_to "View on StoryGraph", book.url, target: "_blank" %>
+          </span>
+          |
+          <span class="italic text-sm">
+            <%= link_to "Edit", edit_book_path(book) %>
+          </span>
         </div>
       </div>
     <% end %>
