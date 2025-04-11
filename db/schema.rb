@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_10_232448) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_11_002114) do
   create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
+    t.string "title", null: false
+    t.string "author", null: false
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,9 +29,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_232448) do
   create_table "meetings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "meeting_time"
+    t.datetime "meeting_time", null: false
     t.integer "meeting_series_id", null: false
-    t.string "reading_expectations"
+    t.string "reading_expectations", null: false
     t.index ["meeting_series_id"], name: "index_meetings_on_meeting_series_id"
   end
 
@@ -39,9 +39,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_10_232448) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "username"
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.string "username", null: false
     t.string "remember_token"
   end
 

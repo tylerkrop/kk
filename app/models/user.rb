@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable,
          :omniauthable, omniauth_providers: %i[discord]
 
+  validates :provider, presence: true
+  validates :uid, presence: true
+  validates :username, presence: true
+
   def self.from_omniauth(auth)
     user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
     user.username = auth.info["name"]
