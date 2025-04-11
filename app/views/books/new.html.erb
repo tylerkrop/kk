@@ -20,9 +20,12 @@
       <%= form.label :author, "Author" %>
       <%= form.text_field :author, class: "border rounded-md p-1" %>
     </div>
-    <div class="my-4">
-      <%= form.label :url, "URL" %>
+    <div class="mt-4">
+      <%= form.label :url, "StoryGraph URL" %>
       <%= form.text_field :url, class: "border rounded-md p-1" %>
+    </div>
+    <div class="mb-4 italic text-sm">
+      <%= link_to "Browse StoryGraph", "https://app.thestorygraph.com/", target: "_blank" %>
     </div>
     <div class="my-4">
       <%= form.submit "Create Book", class: "bg-emerald-700 cursor-pointer hover:bg-emerald-600 font-semibold p-2 rounded-md" %>
