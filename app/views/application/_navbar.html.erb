@@ -2,6 +2,9 @@
   <div>
     <%= link_to "Home", root_path, class: "font-semibold hover:bg-emerald-700 p-1 rounded-md" %>
   </div>
+  <div>
+    <%= link_to "Books", books_path, class: "font-semibold hover:bg-emerald-700 p-1 rounded-md" %>
+  </div>
   <div class="ml-auto">
     <% if current_user %>
       <div class="flex items-center space-x-2">
