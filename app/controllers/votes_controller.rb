@@ -5,6 +5,10 @@ class VotesController < ApplicationController
     @votes = Vote.where(user: current_user).order(:position)
   end
 
+  def new
+    @vote = Vote.new
+  end
+
   def destroy
     @vote = current_user.votes.find(params[:id])
     if @vote.destroy
