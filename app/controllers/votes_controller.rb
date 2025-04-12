@@ -8,9 +8,9 @@ class VotesController < ApplicationController
   def destroy
     @vote = current_user.votes.find(params[:id])
     if @vote.destroy
-      redirect_to votes_path, notice: "Vote was successfully deleted"
+      redirect_to votes_path
     else
-      redirect_to votes_path, alert: "Error: #{@vote.errors.full_messages.join(", ")}"
+      raise "Failed to destroy vote: #{@vote.errors.full_messages.join(", ")}"
     end
   end
 end
