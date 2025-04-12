@@ -31,6 +31,15 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    if @book.destroy
+      redirect_to books_path
+    else
+      raise "Failed to destroy book: #{@book.errors.full_messages.join(", ")}"
+    end
+  end
+
   private
 
   def book_params

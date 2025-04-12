@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "meetings#index"
 
-  resources :books, only: [ :index, :edit, :update, :new, :create ]
+  resources :books, only: [ :index, :edit, :update, :new, :create, :destroy ]
   resources :votes, only: [ :index, :destroy ] do
     resources :positions, only: [ :update ], module: :votes
   end
