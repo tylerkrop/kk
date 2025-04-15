@@ -1,7 +1,7 @@
 name: CD
 
 on:
-  workflow_dispath:
+  workflow_dispatch:
 
 jobs:
   deploy:
