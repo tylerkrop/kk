@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   # https://github.com/heartcombo/devise/wiki/How-To:-%5BRedirect-back-to-current-page-after-sign-in,-sign-out,-sign-up,-update%5D
   after_action :store_action
   def store_action
-    return unless request.get?
+    return unless request.method_symbol == :get
     if request.path != "/users/sign_in" &&
         request.path != "/users/sign_up" &&
         request.path != "/users/password/new" &&
