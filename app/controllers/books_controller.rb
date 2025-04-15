@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.order(:title).page params[:page]
+    @current_user_votes_book_ids = current_user.votes.pluck(:book_id) if user_signed_in?
   end
 
   def new

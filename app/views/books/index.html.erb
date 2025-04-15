@@ -5,22 +5,29 @@
   </div>
   <div>
     <% @books.each do |book| %>
-      <div class="bg-emerald-700 p-2 my-4 rounded-md">
+      <div class="bg-emerald-700 p-2 my-4 rounded-md flex">
         <div>
-          <h2 class="text-xl font-bold"><%= book.title %></h2>
+          <div>
+            <h2 class="text-xl font-bold"><%= book.title %></h2>
+          </div>
+          <div>
+            by <%= book.author %>
+          </div>
+          <div>
+            <span class="italic text-sm">
+              <%= link_to "View on StoryGraph", book.url, target: "_blank" %>
+            </span>
+            |
+            <span class="italic text-sm">
+              <%= link_to "Edit", edit_book_path(book) %>
+            </span>
+          </div>
         </div>
-        <div>
-          by <%= book.author %>
-        </div>
-        <div>
-          <span class="italic text-sm">
-            <%= link_to "View on StoryGraph", book.url, target: "_blank" %>
-          </span>
-          |
-          <span class="italic text-sm">
-            <%= link_to "Edit", edit_book_path(book) %>
-          </span>
-        </div>
+        <% if @current_user_votes_book_ids&.exclude?(book.id) %>
+          <div class="mt-auto ml-auto">
+            <%= button_to "+Vote", votes_path(book_id: book.id), method: :post, class: "border bg-emerald-700 cursor-pointer hover:bg-emerald-600 font-semibold p-1 rounded-md ml-auto" %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
