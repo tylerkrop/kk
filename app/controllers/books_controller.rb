@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [ :index ]
+  skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
     @books = Book.order(:title).page params[:page]
