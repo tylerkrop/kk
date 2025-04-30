@@ -6,7 +6,7 @@ class Vote < ApplicationRecord
   acts_as_list top_of_list: 0, scope: :user
 
   # Borda Count (Bottom-Tie) Ranking Algorithm
-  def current_points
+  def self.current_points
     titles = Vote.all.map do |vote|
       vote.book.title
     end.uniq
