@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_15_165059) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_03_152254) do
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
     t.string "author", null: false
@@ -19,20 +19,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_15_165059) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "meeting_series", force: :cascade do |t|
-    t.integer "book_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_meeting_series_on_book_id"
-  end
-
   create_table "meetings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "meeting_time", null: false
-    t.integer "meeting_series_id", null: false
     t.string "reading_expectations", null: false
-    t.index ["meeting_series_id"], name: "index_meetings_on_meeting_series_id"
+    t.integer "book_id", null: false
+    t.index ["book_id"], name: "index_meetings_on_book_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,8 +48,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_15_165059) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "meeting_series", "books"
-  add_foreign_key "meetings", "meeting_series"
+  add_foreign_key "meetings", "books"
   add_foreign_key "votes", "books"
   add_foreign_key "votes", "users"
 end
