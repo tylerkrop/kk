@@ -5,7 +5,7 @@
       <div class="bg-emerald-700 p-2 my-4 rounded-md">
         <div class="text-lg"><%= meeting.meeting_time.in_time_zone("America/New_York").to_fs(:long_ordinal) %> (<%= distance_of_time_in_words(DateTime.current, meeting.meeting_time) %>)</div>
         <div>
-          <%= meeting.meeting_series.book.title %> | <%= meeting.reading_expectations %>
+          <%= meeting.book.title %> | <%= meeting.reading_expectations %>
         </div>
       </div>
     <% end %>
