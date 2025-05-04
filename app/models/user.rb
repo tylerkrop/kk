@@ -3,12 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :rememberable,
          :omniauthable, omniauth_providers: %i[discord]
-
+  has_many :votes, dependent: :destroy
   validates :provider, presence: true
   validates :uid, presence: true
   validates :username, presence: true
-
-  has_many :votes, dependent: :destroy
 
   def self.from_omniauth(auth)
     user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
@@ -30,5 +28,9 @@ class User < ApplicationRecord
   # Force the remember token to always be present for Devise
   def remember_me
     true
+  end
+
+  def admin?
+    role == 1
   end
 end
