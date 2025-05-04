@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_03_152254) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_04_195051) do
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
     t.string "author", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_152254) do
     t.string "uid", null: false
     t.string "username", null: false
     t.string "remember_token"
+    t.integer "role", default: 0, null: false
   end
 
   create_table "votes", force: :cascade do |t|
