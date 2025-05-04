@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
   def index
-    @books = Book.where(hidden: false).order(:title).page params[:page]
+    @books = Book.with_visible.order(:title).page params[:page]
     @current_user_votes_book_ids = current_user.votes.pluck(:book_id) if user_signed_in?
   end
 
