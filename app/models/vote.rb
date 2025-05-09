@@ -2,7 +2,7 @@ class Vote < ApplicationRecord
   acts_as_list top_of_list: 0, scope: :user
   belongs_to :user
   belongs_to :book
-  scope :positioned, -> { where.not(position: nil) }
+  scope :with_position, -> { where.not(position: nil) }
   validates :user_id, presence: true
   validates :book_id, presence: true
 

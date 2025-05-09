@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
   def index
-    @votes = Vote.positioned.where(user: current_user).order(:position)
+    @votes = Vote.with_position.where(user: current_user).order(:position)
   end
 
   def create
