@@ -5,4 +5,5 @@ one:
 two:
   provider: test
   uid: 2
-  username: user2
+  username: admin1
+  role: 1
