@@ -1,11 +1,13 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  author: MyString
-  url: MyString
-
+  title: "Title 1"
+  author: "Author 1"
+  url: "https://app.thestorygraph.com/books/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+  hidden: true
 two:
-  title: MyString
-  author: MyString
-  url: MyString
+  title: "Title 2"
+  author: "Author 2"
+  url: "https://app.thestorygraph.com/books/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
+three:
+  title: "Title 3"
+  author: "Author 3"
+  url: "https://app.thestorygraph.com/books/cccccccc-cccc-cccc-cccc-cccccccccccc"

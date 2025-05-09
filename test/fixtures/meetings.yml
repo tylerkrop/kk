@@ -1,1 +1,12 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  meeting_time: <%= Time.now - 1.hour %>
+  book: :one
+  reading_expectations: "Chapter 1"
+two:
+  meeting_time: <%= Time.now + 1.hour %>
+  book: :one
+  reading_expectations: "Chapter 2"
+one:
+  meeting_time: <%= Time.now + 2.hour %>
+  book: :one
+  reading_expectations: "Chapter 3"
