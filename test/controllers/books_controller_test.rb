@@ -82,10 +82,19 @@ class BooksControllerTest < ActionController::TestCase
   test "update book" do
     sign_in @user
     book = books(:one)
-    patch :update, params: { id: book.id, book: { title: "Updated Title", author: "Updated Author" } }
+    title = "Updated Title"
+    author = "Updated Author"
+    url = "https://app.thestorygraph.com/books/updated-url"
+    assert_no_difference("Book.count") do
+      patch :update, params: { id: book.id, book: { title: title, author: author, url: url } }
+    end
     assert_response :redirect
     assert_redirected_to book_path(assigns(:book))
     assert_equal "Book was successfully updated", flash[:notice]
+    book.reload
+    assert_equal title, book.title
+    assert_equal author, book.author
+    assert_equal url, book.url
   end
 
   test "update book with invalid data" do
