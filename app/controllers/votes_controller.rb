@@ -1,6 +1,4 @@
 class VotesController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @votes = Vote.positioned.where(user: current_user).order(:position)
   end
