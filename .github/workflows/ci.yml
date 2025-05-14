@@ -88,3 +88,9 @@ jobs:
           name: screenshots
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
+  
+  deploy:
+    needs: [ scan_ruby, scan_js, lint, test ]
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/cd.yml
+    secrets: inherit

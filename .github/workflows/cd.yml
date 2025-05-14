@@ -1,19 +1,24 @@
 name: CD
 
 on:
-  workflow_run:
-    workflows:
-      - CI
-    types:
-      - completed
-    branches:
-      - main
+  workflow_call:
+    secrets:
+      SSH_PRIVATE_KEY:
+        required: true
+      RAILS_MASTER_KEY:
+        required: true
+      KAMAL_REGISTRY_PASSWORD:
+        required: true
+      DISCORD_CLIENT_ID:
+        required: true
+      DISCORD_CLIENT_SECRET:
+        required: true
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout code
