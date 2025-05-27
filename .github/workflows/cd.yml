@@ -1,5 +1,9 @@
 name: CD
 
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
 on:
   workflow_call:
     secrets:
