@@ -1,0 +1,36 @@
+<div>
+  <% if flash[:notice] %>
+    <div class="bg-green-200 text-green-700 p-1 rounded-md">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="bg-red-200 text-red-700 p-1 rounded-md">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+  <h1 class="text-2xl font-bold underline">New Meeting</h1>
+  <%= form_with model: @meeting, url: meetings_path, local: true, class: "space-y-2 mt-2" do |form| %>
+    <div>
+      <%= form.label :book_id, "Book" %>
+    </div>
+    <div>
+      <%= form.collection_select :book_id, @books, :id, :title %>
+    </div>
+    <div>
+      <%= form.label :meeting_time %>
+    </div>
+    <div>
+      <%= form.datetime_local_field :meeting_time, class: "border rounded-md p-1", value: (@meeting.meeting_time&.strftime("%Y-%m-%dT%H:%M")) %>
+    </div>
+    <div>
+      <%= form.label :reading_expectations, "Reading Expectations" %>
+    </div>
+    <div>
+      <%= form.text_area :reading_expectations, class: "border rounded-md p-1" %>
+    </div>
+    <div>
+      <%= form.submit "Create Meeting", class: "bg-emerald-700 cursor-pointer hover:bg-emerald-600 font-semibold p-2 rounded-md" %>
+    </div>
+  <% end %>
+</div>

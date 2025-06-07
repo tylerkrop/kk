@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :votes, only: [ :index, :destroy, :create ] do
     resources :positions, only: [ :update ], module: :votes
   end
+  resources :meetings, only: [ :new, :create ]
 end
